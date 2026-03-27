@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.Random;
+import java.util.Scanner;
 import org.json.simple.*;
 
 public class CavazosExample {
@@ -55,4 +56,16 @@ public class CavazosExample {
     }
     return arr;
   }
+  private static void printMenu() {
+    System.out.println("------------------------------------------------------------");
+    System.out.println("General Cavazos Commander App");
+    System.out.println("------------------------------------------------------------");
+    System.out.println("i\tIssue a command");
+    System.out.println("l\tList all of the commands");
+    System.out.println("u\tUndo the last command that was issued");
+    System.out.println("r\tRedo the last command that was issued");
+    System.out.println("q\tQuit");
+    System.out.println("------------------------------------------------------------");
+    System.out.print("Enter a command: ");
+}
 }
