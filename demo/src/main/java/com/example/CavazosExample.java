@@ -1,4 +1,4 @@
-package com.cavazos;
+package com.example;
 
 import java.util.Random;
 import org.json.simple.*;
