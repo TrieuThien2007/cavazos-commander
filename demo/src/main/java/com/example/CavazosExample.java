@@ -13,16 +13,9 @@ public class CavazosExample {
     // read coammands
     JSONArray commandJSONArray = JSONFile.readArray(fileName);
     String[] commandArray = getCommandArray(commandJSONArray);
-    System.out.println(commandArray);
-
-    // print list of all commands
-    System.out.println("----- List of all commands -----");
-    print(commandArray);
-
-    System.out.println(
-      "----- Issuing 5 random commands from General Cavazos -----"
-    );
-    randomCommand(commandArray, 5);
+ printMenu();
+ Scanner sc = new Scanner(System.in);
+char choice = sc.nextLine().charAt(0);
   }
 
   // randomly issue commands from General Cavazos
