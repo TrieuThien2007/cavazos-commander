@@ -39,7 +39,9 @@ public class CavazosExample {
         case 'r':
           redoCommand(history, redoStack);
           break;
-        
+        case 'q':
+          System.out.println("Goodbye!");
+          break;
 
         default:
           System.out.println("Invalid command!");
