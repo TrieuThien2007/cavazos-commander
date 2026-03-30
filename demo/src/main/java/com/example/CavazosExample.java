@@ -14,6 +14,7 @@ public class CavazosExample {
     JSONArray commandJSONArray = JSONFile.readArray(fileName);
     String[] commandArray = getCommandArray(commandJSONArray);
     Stack<String> history = new Stack<>();
+    Stack<String> redoStack = new Stack<>();
 
     // print menu
     Scanner sc = new Scanner(System.in);
