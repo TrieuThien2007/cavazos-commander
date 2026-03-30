@@ -33,7 +33,7 @@ public class CavazosExample {
           break;
 
         case 'u':
-          undoCommand(history);
+          undoCommand(history, redoStack);
           break;
 
         default:
@@ -103,11 +103,12 @@ public class CavazosExample {
     print(commandArray);
   }
 
-  private static void undoCommand(Stack<String> history) {
+  private static void undoCommand(Stack<String> history, Stack<String> redoStack) {
     if (history.isEmpty()) {
       System.out.println("No command to undo!");
     } else {
       String removed = history.pop();
+      redoStack.push(removed);
       System.out.println("Undo: " + removed);
     }
   }
