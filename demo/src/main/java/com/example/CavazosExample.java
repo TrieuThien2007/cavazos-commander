@@ -36,6 +36,10 @@ public class CavazosExample {
           undoCommand(history, redoStack);
           break;
 
+        case 'r':
+          redoCommand(history, redoStack);
+          break;
+
         default:
           System.out.println("Invalid command!");
       }
@@ -112,14 +116,15 @@ public class CavazosExample {
       System.out.println("Undo: " + removed);
     }
   }
+
   private static void redoCommand(Stack<String> history, Stack<String> redoStack) {
-  if (redoStack.isEmpty()) {
-    System.out.println("No command to redo!");
-  } else {
-    String cmd = redoStack.pop();
-    history.push(cmd);
-    System.out.println("Redo: " + cmd);
+    if (redoStack.isEmpty()) {
+      System.out.println("No command to redo!");
+    } else {
+      String cmd = redoStack.pop();
+      history.push(cmd);
+      System.out.println("Redo: " + cmd);
+    }
   }
-}
 
 }
