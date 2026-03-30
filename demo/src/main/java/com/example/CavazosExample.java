@@ -7,15 +7,14 @@ import org.json.simple.*;
 public class CavazosExample {
 
   public static void main(String[] args) {
-    String fileName =
-      "F:\\cavazos-commander\\demo\\src\\main\\resources\\commands.json";
+    String fileName = "F:\\cavazos-commander\\demo\\src\\main\\resources\\commands.json";
 
     // read coammands
     JSONArray commandJSONArray = JSONFile.readArray(fileName);
     String[] commandArray = getCommandArray(commandJSONArray);
- printMenu();
- Scanner sc = new Scanner(System.in);
-char choice = sc.nextLine().charAt(0);
+    printMenu();
+    Scanner sc = new Scanner(System.in);
+    char choice = sc.nextLine().charAt(0);
   }
 
   // randomly issue commands from General Cavazos
@@ -49,6 +48,7 @@ char choice = sc.nextLine().charAt(0);
     }
     return arr;
   }
+
   private static void printMenu() {
     System.out.println("------------------------------------------------------------");
     System.out.println("General Cavazos Commander App");
@@ -60,5 +60,10 @@ char choice = sc.nextLine().charAt(0);
     System.out.println("q\tQuit");
     System.out.println("------------------------------------------------------------");
     System.out.print("Enter a command: ");
+  }
+
+  private static void issueCommand(String[] commandArray) {
+  randomCommand(commandArray, 1);
 }
+  
 }
