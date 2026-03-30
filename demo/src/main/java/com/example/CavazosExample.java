@@ -25,7 +25,7 @@ public class CavazosExample {
 
       switch (choice) {
         case 'i':
-          issueCommand(commandArray, history);
+          issueCommand(commandArray, history, redoStack);
           break;
 
         case 'l':
@@ -39,6 +39,7 @@ public class CavazosExample {
         case 'r':
           redoCommand(history, redoStack);
           break;
+        
 
         default:
           System.out.println("Invalid command!");
@@ -92,7 +93,7 @@ public class CavazosExample {
     System.out.print("Enter a command: ");
   }
 
-  private static void issueCommand(String[] commandArray, Stack<String> history) {
+  private static void issueCommand(String[] commandArray, Stack<String> history, Stack<String> redoStack) {
     Random rand = new Random();
     int randIndex = rand.nextInt(commandArray.length);
 
@@ -101,6 +102,7 @@ public class CavazosExample {
     System.out.printf("%04d\t%s\n", randIndex, command);
 
     history.push(command);
+    redoStack.clear();
   }
 
   private static void listCommands(String[] commandArray) {
