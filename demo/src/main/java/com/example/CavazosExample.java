@@ -19,7 +19,7 @@ public class CavazosExample {
     do{
       printMenu();
       choice = sc.nextLine().charAt(0);
-    } while (choice != 'q');
+    
     switch (choice) {
       case 'i':
         issueCommand(commandArray);
@@ -32,6 +32,8 @@ public class CavazosExample {
         default:
         System.out.println("Invalid command!");
     }
+  } while (choice != 'q');
+    sc.close();
   }
 
   
