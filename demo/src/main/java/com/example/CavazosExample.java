@@ -117,7 +117,7 @@ public class CavazosExample {
     } else {
       String removed = history.pop();
       redoStack.push(removed);
-      System.out.println("[UNDO COMMAND ISSUED]: General Cavazos orders the troops to undo " + removed);
+      System.out.println("[UNDO COMMAND ISSUED]: General Cavazos orders the troops to undo: " + removed);
     }
   }
 
@@ -127,7 +127,7 @@ public class CavazosExample {
     } else {
       String cmd = redoStack.pop();
       history.push(cmd);
-      System.out.println("[REDO COMMAND ISSUED]: General Cavazos orders the troops to redo " + cmd);
+      System.out.println("[REDO COMMAND ISSUED]: General Cavazos orders the troops to redo: " + cmd);
     }
   }
 
