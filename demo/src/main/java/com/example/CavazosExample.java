@@ -101,7 +101,7 @@ public class CavazosExample {
 
     String command = commandArray[randIndex];
 
-    System.out.printf("%04d\t%s\n", randIndex, command);
+    System.out.println("[COMMAND ISSUED]: General Cavazos orders the troops to do: " + command);
 
     history.push(command);
     redoStack.clear();
@@ -117,7 +117,7 @@ public class CavazosExample {
     } else {
       String removed = history.pop();
       redoStack.push(removed);
-      System.out.println("Undo: " + removed);
+      System.out.println("[UNDO COMMAND ISSUED]: General Cavazos orders the troops to undo " + removed);
     }
   }
 
@@ -127,7 +127,7 @@ public class CavazosExample {
     } else {
       String cmd = redoStack.pop();
       history.push(cmd);
-      System.out.println("Redo: " + cmd);
+      System.out.println("[REDO COMMAND ISSUED]: General Cavazos orders the troops to redo " + cmd);
     }
   }
 
