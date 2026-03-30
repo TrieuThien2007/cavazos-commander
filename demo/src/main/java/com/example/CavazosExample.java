@@ -45,7 +45,7 @@ public class CavazosExample {
     System.out.printf("------\t---------------\n");
     for (int i = 0; i < numCommand; i++) {
       int randIndex = rand.nextInt(commandArray.length);
-      System.out.printf("%04d\t%s\n", i, commandArray[randIndex]);
+      System.out.printf("%04d\t%s\n", randIndex, commandArray[randIndex]);
     }
   }
 
