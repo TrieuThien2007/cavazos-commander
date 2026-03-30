@@ -12,17 +12,22 @@ public class CavazosExample {
     // read coammands
     JSONArray commandJSONArray = JSONFile.readArray(fileName);
     String[] commandArray = getCommandArray(commandJSONArray);
-    printMenu();
+   
+    // print menu
     Scanner sc = new Scanner(System.in);
-    char choice = sc.nextLine().charAt(0);
+    char choice;
+    do{
+      printMenu();
+      choice = sc.nextLine().charAt(0);
+    } while (choice != 'q');
     switch (choice) {
       case 'i':
         issueCommand(commandArray);
         break;
 
         case 'l':
-  listCommands(commandArray);
-  break;
+        listCommands(commandArray);
+         break;
 
         default:
         System.out.println("Invalid command!");
