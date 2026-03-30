@@ -20,8 +20,12 @@ public class CavazosExample {
         issueCommand(commandArray);
         break;
 
+        case 'l':
+  listCommands(commandArray);
+  break;
+
         default:
-        System.out.println("Invalid command");
+        System.out.println("Invalid command!");
     }
   }
 
@@ -74,6 +78,9 @@ public class CavazosExample {
 
   private static void issueCommand(String[] commandArray) {
   randomCommand(commandArray, 1);
+}
+private static void listCommands(String[] commandArray) {
+  print(commandArray);
 }
   
 }
