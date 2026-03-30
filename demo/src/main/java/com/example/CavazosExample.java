@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.Random;
+import java.until.Stack;
 import java.util.Scanner;
 import org.json.simple.*;
 
@@ -12,6 +13,7 @@ public class CavazosExample {
     // read coammands
     JSONArray commandJSONArray = JSONFile.readArray(fileName);
     String[] commandArray = getCommandArray(commandJSONArray);
+    Stack<String> history = new Stack<>();
    
     // print menu
     Scanner sc = new Scanner(System.in);
@@ -22,7 +24,7 @@ public class CavazosExample {
     
     switch (choice) {
       case 'i':
-        issueCommand(commandArray);
+        issueCommand(commandArray, history);
         break;
 
         case 'l':
@@ -83,8 +85,15 @@ public class CavazosExample {
     System.out.print("Enter a command: ");
   }
 
-  private static void issueCommand(String[] commandArray) {
-  randomCommand(commandArray, 1);
+  private static void issueCommand(String[] commandArray, Stack<String> history) {
+  Random rand = new Random();
+  int randIndex = rand.nextInt(commandArray.length);
+
+  String command = commandArray[randIndex];
+
+  System.out.printf("%04d\t%s\n", randIndex, command);
+
+  history.push(command);
 }
 private static void listCommands(String[] commandArray) {
   print(commandArray);
