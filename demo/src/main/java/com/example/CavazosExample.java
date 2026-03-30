@@ -15,7 +15,17 @@ public class CavazosExample {
     printMenu();
     Scanner sc = new Scanner(System.in);
     char choice = sc.nextLine().charAt(0);
+    switch (choice) {
+      case 'i':
+        issueCommand(commandArray);
+        break;
+
+        default:
+        System.out.println("Invalid command");
+    }
   }
+
+  
 
   // randomly issue commands from General Cavazos
   public static void randomCommand(String[] commandArray, int numCommand) {
