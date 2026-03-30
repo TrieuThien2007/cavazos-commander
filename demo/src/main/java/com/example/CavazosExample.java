@@ -112,5 +112,14 @@ public class CavazosExample {
       System.out.println("Undo: " + removed);
     }
   }
+  private static void redoCommand(Stack<String> history, Stack<String> redoStack) {
+  if (redoStack.isEmpty()) {
+    System.out.println("No command to redo!");
+  } else {
+    String cmd = redoStack.pop();
+    history.push(cmd);
+    System.out.println("Redo: " + cmd);
+  }
+}
 
 }
