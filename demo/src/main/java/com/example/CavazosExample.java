@@ -1,7 +1,7 @@
 package com.example;
 
 import java.util.Random;
-import java.until.Stack;
+import java.util.Stack;
 import java.util.Scanner;
 import org.json.simple.*;
 
@@ -14,31 +14,33 @@ public class CavazosExample {
     JSONArray commandJSONArray = JSONFile.readArray(fileName);
     String[] commandArray = getCommandArray(commandJSONArray);
     Stack<String> history = new Stack<>();
-   
+
     // print menu
     Scanner sc = new Scanner(System.in);
     char choice;
-    do{
+    do {
       printMenu();
       choice = sc.nextLine().charAt(0);
-    
-    switch (choice) {
-      case 'i':
-        issueCommand(commandArray, history);
-        break;
+
+      switch (choice) {
+        case 'i':
+          issueCommand(commandArray, history);
+          break;
 
         case 'l':
-        listCommands(commandArray);
-         break;
+          listCommands(commandArray);
+          break;
+
+        case 'u':
+          undoCommand(history);
+          break;
 
         default:
-        System.out.println("Invalid command!");
-    }
-  } while (choice != 'q');
+          System.out.println("Invalid command!");
+      }
+    } while (choice != 'q');
     sc.close();
   }
-
-  
 
   // randomly issue commands from General Cavazos
   public static void randomCommand(String[] commandArray, int numCommand) {
@@ -86,17 +88,27 @@ public class CavazosExample {
   }
 
   private static void issueCommand(String[] commandArray, Stack<String> history) {
-  Random rand = new Random();
-  int randIndex = rand.nextInt(commandArray.length);
+    Random rand = new Random();
+    int randIndex = rand.nextInt(commandArray.length);
 
-  String command = commandArray[randIndex];
+    String command = commandArray[randIndex];
 
-  System.out.printf("%04d\t%s\n", randIndex, command);
+    System.out.printf("%04d\t%s\n", randIndex, command);
 
-  history.push(command);
-}
-private static void listCommands(String[] commandArray) {
-  print(commandArray);
-}
-  
+    history.push(command);
+  }
+
+  private static void listCommands(String[] commandArray) {
+    print(commandArray);
+  }
+
+  private static void undoCommand(Stack<String> history) {
+    if (history.isEmpty()) {
+      System.out.println("No command to undo!");
+    } else {
+      String removed = history.pop();
+      System.out.println("Undo: " + removed);
+    }
+  }
+
 }
